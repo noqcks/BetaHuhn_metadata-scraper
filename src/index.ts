@@ -69,12 +69,12 @@ const getMetaData = async function(input: string | Partial<Options>, inputOption
 		url = input
 	}
 
-	const options = {...defaultOptions, ...inputOptions}
+	const options: Partial<Options> = {...defaultOptions, ...inputOptions}
 
 	const rules: Record<string, RuleSet> = { ...metaDataRules }
 	Object.keys(options.customRules).forEach((key: string) => {
 		rules[key] = {
-			rules: [ ...metaDataRules[key].rules, ...options.customRules[key].rules ],
+			rules: [ ...metaDataRules[key].rules, ...(options.customRules[key] as RuleSet).rules ],
 			defaultValue: options.customRules[key].defaultValue || metaDataRules[key].defaultValue,
 			processor: options.customRules[key].processor || metaDataRules[key].processor
 		}
