@@ -76,7 +76,7 @@ const getMetaData = async function(input: string | Partial<Options>, inputOption
 		rules[key] = {
 			rules: [ ...metaDataRules[key].rules, ...(options.customRules?.[key]?.rules || []) ],
 			defaultValue: options.customRules?.[key]?.defaultValue || metaDataRules[key].defaultValue,
-			processor: options.customRules[key].processor || metaDataRules[key].processor
+			processor: options.customRules?.[key]?.processor || metaDataRules[key].processor
 		}
 	})
 
