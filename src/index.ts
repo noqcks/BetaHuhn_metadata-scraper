@@ -23,7 +23,7 @@ const runRule = function(ruleSet: RuleSet, doc: Document, context: Context) {
 	for (let currRule = 0; currRule < ruleSet.rules.length; currRule++) {
 		const [ query, handler ] = ruleSet.rules[currRule]
 
-		const elements = Array.from(doc.querySelectorAll(query))
+		const elements = [...doc.querySelectorAll(query)]
 		if (elements.length) {
 			for (const element of elements) {
 				let score = ruleSet.rules.length - currRule
