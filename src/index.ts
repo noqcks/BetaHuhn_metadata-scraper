@@ -1,4 +1,4 @@
-import got from 'got'
+import got from 'got';
 import * as domino from 'domino'
 
 import { Options, Context, RuleSet, MetaData } from './types'
