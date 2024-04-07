@@ -1,4 +1,4 @@
-import urlparse from 'url'
+import { URL } from 'url'
 
 export function makeUrlAbsolute(base: string, relative: string): string {
 	const relativeParsed = urlparse.parse(relative)
